@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import BootstrapTable from 'react-bootstrap-table-next'
+import ToolkitProvider from 'react-bootstrap-table2-toolkit'
 
 import useInterval from '../../shared/useInterval'
 import useFinanceApi from './useFinanceApi'
-import { Spinner } from 'react-bootstrap'
+import { Button, Spinner } from 'react-bootstrap'
 
 import './FinanceTable.scss'
 
@@ -26,17 +27,34 @@ const FinanceTable = ({ columns, FinanceAdapter }) => {
         />
       )}
       {!isError ? (
-        <BootstrapTable
+        <ToolkitProvider
           keyField="id"
           data={FinanceAdapter(data, rates)}
           columns={columns}
-          variant="dark"
-          size="sm"
-          responsive
-          striped
-          hover
-          bordered
-        />
+          exportCSV={{
+            fileName: 'FinanceTable.csv',
+          }}
+        >
+          {props => (
+            <React.Fragment>
+              <BootstrapTable
+                {...props.baseProps}
+                variant="dark"
+                size="sm"
+                responsive
+                striped
+                hover
+                bordered
+              />
+              <Button
+                variant="outline-primary"
+                onClick={() => props.csvProps.onExport()}
+              >
+                Export CSV
+              </Button>
+            </React.Fragment>
+          )}
+        </ToolkitProvider>
       ) : (
         <p className="error-text">Whoops.. something went wrong!</p>
       )}
