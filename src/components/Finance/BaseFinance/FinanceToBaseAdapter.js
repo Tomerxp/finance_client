@@ -1,4 +1,4 @@
-const FinanceToAggregatedAdapter = (finUnits = [], rates) => {
+const FinanceToAggregatedAdapter = (finUnits = {}, rates) => {
   const financeData = []
   let rollingIndex = 0
 

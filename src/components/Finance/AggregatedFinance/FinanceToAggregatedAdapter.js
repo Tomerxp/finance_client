@@ -1,4 +1,4 @@
-const FinanceToAggregatedAdapter = (finUnits = [], rates) => {
+const FinanceToAggregatedAdapter = (finUnits = {}, rates) => {
   const financeData = []
 
   Object.keys(finUnits).forEach(finUnitId => {
