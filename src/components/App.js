@@ -1,25 +1,21 @@
 import React from 'react'
 import { Router } from '@reach/router'
 
-import HomePage from './HomePage/HomePage'
+import routes from './routes'
 import NavBar from './NavBar/NavBar'
-import FXCalculator from './FXCalculatorPage/FXCalculator'
-import NotFound from './NotFound/NotFound'
 import ContentLayout from './Layout/ContentLayout'
-import BaseFinance from './Finance/BaseFinance/BaseFinance'
-import AggregatedFinance from './Finance/AggregatedFinance/AggregatedFinance'
+import NotFound from './NotFound/NotFound'
 
 const App = () => {
   return (
     <div>
-      <NavBar />
-
+      <NavBar routes={routes} />
       <ContentLayout>
         <Router>
-          <HomePage path="/" />
-          <FXCalculator path="/calculator" />
-          <BaseFinance path="/finance" />
-          <AggregatedFinance path="/aggregated-finance" />
+          {routes.map(route => {
+            const { Component, path } = route
+            return <Component path={path} />
+          })}
           <NotFound default />
         </Router>
       </ContentLayout>

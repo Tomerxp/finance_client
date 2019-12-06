@@ -1,6 +1,6 @@
 import React from 'react'
 import { navigate } from '@reach/router'
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 
 import TopLogo from '../../assets/images/toplogo.svg'
 
@@ -10,35 +10,30 @@ const navigateTo = path => event => {
   navigate(path)
 }
 
-const NavBar = () => {
+const NavBar = ({ routes }) => {
+  const [homeRoute, ...otherRoutes] = routes
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="/" onClick={navigateTo('/')}>
+      <Navbar.Brand href={homeRoute.path} onClick={navigateTo(homeRoute.path)}>
         <img
           alt=""
           src={TopLogo}
           width="180"
           height="35"
           className="d-inline-block align-top"
-        />{' '}
-        Foreign Exchange
+        />
+        {` ${homeRoute.title}`}
       </Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <NavDropdown title="Finance Table" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/finance" onClick={navigateTo('/finance')}>
-              FX Table
-            </NavDropdown.Item>
-            <NavDropdown.Item
-              href="/aggregated-finance"
-              onClick={navigateTo('/aggregated-finance')}
-            >
-              FX Table - Aggregated
-            </NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link href="/calculator" onClick={navigateTo('/calculator')}>
-            FX Calculator
-          </Nav.Link>
+          {otherRoutes.map(route => {
+            const { title, path } = route
+            return (
+              <Nav.Link href={path} onClick={navigateTo(path)}>
+                {title}
+              </Nav.Link>
+            )
+          })}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
