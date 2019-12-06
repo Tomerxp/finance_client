@@ -1,0 +1,28 @@
+.finance-container {
+  position: relative;
+
+  &.loading {
+    position: relative;
+  }
+
+  &.loading::after {
+    content: '';
+    width: 101%;
+    height: 101%;
+    background: rgba(0, 0, 0, 0.5);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .loading-spinner {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+  }
+}
+
+.error-text {
+  color: rgb(255, 72, 72);
+}

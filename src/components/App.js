@@ -6,7 +6,8 @@ import NavBar from './NavBar/NavBar'
 import FXCalculator from './FXCalculatorPage/FXCalculator'
 import NotFound from './NotFound/NotFound'
 import ContentLayout from './Layout/ContentLayout'
-import BaseFinance from './Finance/BaseFinance'
+import BaseFinance from './Finance/BaseFinance/BaseFinance'
+import AggregatedFinance from './Finance/AggregatedFinance/AggregatedFinance'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <HomePage path="/" />
           <FXCalculator path="/calculator" />
           <BaseFinance path="/finance" />
+          <AggregatedFinance path="/aggregated-finance" />
           <NotFound default />
         </Router>
       </ContentLayout>

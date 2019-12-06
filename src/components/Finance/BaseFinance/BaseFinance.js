@@ -1,5 +1,7 @@
 import React from 'react'
-import BootstrapTable from 'react-bootstrap-table-next'
+
+import FinanceTable from '../FinanceTable'
+import FinanceToBaseAdapter from './FinanceToBaseAdapter'
 
 const columns = [
   {
@@ -24,18 +26,8 @@ const columns = [
   },
 ]
 
-const FinanceTable = ({ data }) => (
-  <BootstrapTable
-    keyField="id"
-    data={data}
-    columns={columns}
-    variant="dark"
-    size="sm"
-    responsive
-    striped
-    hover
-    bordered
-  />
+const BaseFinance = () => (
+  <FinanceTable FinanceAdapter={FinanceToBaseAdapter} columns={columns} />
 )
 
-export default FinanceTable
+export default BaseFinance
