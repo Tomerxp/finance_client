@@ -2,7 +2,7 @@ import {
   financeUnitsInput,
   aggregatedAdapterDataOutput,
   routes,
-} from '../../../../testUtils/FinanceUtils'
+} from '../../../../TestUtils/FinanceTestUtils'
 import FinanceToAggregatedAdapter from '../../AggregatedFinance/FinanceToAggregatedAdapter'
 
 describe('FinanceToAggregatedAdapter.test', () => {
