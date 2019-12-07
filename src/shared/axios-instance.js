@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8080/v1',
+  baseURL: 'https://server-fx.netlify.com/.netlify/functions/index',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
