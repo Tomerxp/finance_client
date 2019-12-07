@@ -12,9 +12,9 @@ const App = () => {
       <NavBar routes={routes} />
       <ContentLayout>
         <Router>
-          {routes.map(route => {
+          {routes.map((route, index) => {
             const { Component, path } = route
-            return <Component path={path} />
+            return <Component key={index} path={path} />
           })}
           <NotFound default />
         </Router>

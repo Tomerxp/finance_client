@@ -29,7 +29,7 @@ const NavBar = ({ routes }) => {
           {otherRoutes.map(route => {
             const { title, path } = route
             return (
-              <Nav.Link href={path} onClick={navigateTo(path)}>
+              <Nav.Link key={title} href={path} onClick={navigateTo(path)}>
                 {title}
               </Nav.Link>
             )
