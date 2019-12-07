@@ -60,7 +60,11 @@ const FXCalculator = () => {
         <Card bg="primary" text="white" className="fx-calculator-card">
           <Card.Header>Calculated Value (in USD)</Card.Header>
           <Card.Body className="card-body">
-            <Card.Text>${rates[currencyValue] * notionalValue}</Card.Text>
+            <Card.Text>
+              {rates[currencyValue]
+                ? `$${rates[currencyValue] * notionalValue}`
+                : `Error: currencies not loaded`}
+            </Card.Text>
           </Card.Body>
         </Card>
       </Col>
