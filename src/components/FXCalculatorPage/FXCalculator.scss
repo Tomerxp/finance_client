@@ -1,0 +1,33 @@
+.fx-calculator {
+  justify-content: center;
+  align-items: center;
+
+  .col {
+    flex-grow: 0;
+  }
+}
+
+.fx-calculator-card {
+  min-height: 150px;
+  width: 400px;
+
+  .card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input-group {
+    max-width: 300px;
+  }
+}
+
+.calc-dropdown-menu {
+  max-height: 40vh;
+  overflow: auto;
+  transform: none !important;
+}
+
+.calc-dropdown-button {
+  width: 80px;
+}
